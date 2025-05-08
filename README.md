@@ -1,6 +1,6 @@
 App for determining speeds and feeds for tools in USC BFMS machine shop.
 
-# Depdendencies
+# Dependencies
 ```
 pip install numpy, pandas
 ```
