@@ -3,7 +3,7 @@ App for determining speeds and feeds for tools in the USC BFMS machine shop.
 
 ##Dependencies
 ```
-pip install numpy, pandas
+pip install numpy pandas
 ```
 ##File Use
 To create new decision tree png:
