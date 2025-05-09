@@ -1,11 +1,11 @@
-#BFMS Machine Shop App
+# BFMS Machine Shop App
 App for determining speeds and feeds for tools in the USC BFMS machine shop.
 
-##Dependencies
+## Dependencies
 ```
 pip install numpy pandas
 ```
-##File Use
+## File Use
 To create new decision tree png:
 ```
  dot -Tpng DecisionTree.dot -o outfile.png
