@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFMS Machine Shop App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Center Drill Speed and Feed Calculator</h1>
+        
+        <div class="material-selection">
+            <h2>Step 1: Select Material</h2>
+            <form id="materialForm">
+                <label><input type="radio" name="material" value="Aluminum" checked> Aluminum</label><br>
+                <label><input type="radio" name="material" value="Low alloy steel"> Low alloy steel</label><br>
+                <label><input type="radio" name="material" value="Stainless steel"> Stainless steel</label><br>
+            </form>
+        </div>
+
+        <div class="size-selection">
+            <h2>Step 2: Select Tool Size</h2>
+            <form id="sizeForm">
+                <label><input type="radio" name="size" value="1" checked> 1</label><br>
+                <label><input type="radio" name="size" value="2"> 2</label><br>
+                <label><input type="radio" name="size" value="3"> 3</label><br>
+                <label><input type="radio" name="size" value="4"> 4</label><br>
+                <label><input type="radio" name="size" value="5"> 5</label><br>
+                <label><input type="radio" name="size" value="6"> 6</label><br>
+            </form>
+        </div>
+
+        <div class="results">
+            <h2>Results</h2>
+            <p id="speed">Speed: 0</p>
+            <p id="feed">Feed: 0</p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
