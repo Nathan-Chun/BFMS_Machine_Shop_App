@@ -7,9 +7,38 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Navigation Bar -->
+    <nav>
+        <div class = "logo"><a class="logo" href="index.html"><span class="text--color">Home</span></a></div>
+        <ul class="nav__link--list">
+            <li class="nav__link">
+                <a href="people.html" class="
+                nav__link--anchor
+                link__hover-effect">
+                    People</a>
+            </li>
+            <li class="nav__link dropdown">
+                <a href="#" class="nav__link--anchor link__hover-effect">Calculators</a>
+                <ul class="dropdown-menu">
+                    <li><a href="center_drill.html">Center Drill</a></li>
+                    <li><a href="center_drill_2.html">Option 2</a></li>
+                    <li><a href="center_drill_3.html">Option 3</a></li>
+                    <li><a href="center_drill_4.html">Option 4</a></li>
+                    <li><a href="center_drill_5.html">Option 5</a></li>
+                    <li><a href="center_drill_6.html">Option 6</a></li>
+                    <li><a href="center_drill_7.html">Option 7</a></li>
+                    <li><a href="center_drill_8.html">Option 8</a></li>
+                    <li><a href="center_drill_9.html">Option 9</a></li>
+                    <li><a href="center_drill_10.html">Option 10</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-title">
         <h1>Center Drill Speed and Feed Calculator</h1>
-        
+    </div>
+    <div class="container">
         <div class="material-selection">
             <h2>Step 1: Select Material</h2>
             <form id="materialForm">
@@ -18,7 +47,7 @@
                 <label><input type="radio" name="material" value="Stainless steel"> Stainless steel</label><br>
             </form>
         </div>
-
+        <hr>
         <div class="size-selection">
             <h2>Step 2: Select Tool Size</h2>
             <form id="sizeForm">
@@ -30,7 +59,7 @@
                 <label><input type="radio" name="size" value="6"> 6</label><br>
             </form>
         </div>
-
+        <hr>
         <div class="results">
             <h2>Results</h2>
             <p id="speed">Speed: 0</p>
