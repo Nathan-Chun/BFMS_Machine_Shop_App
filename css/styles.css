@@ -131,6 +131,11 @@ a,
     display: flex;
     flex-direction: column;
     width: 100%;
+    font-size: 19px;
+}
+
+.text-links{
+    text-decoration: underline;
 }
 
 
