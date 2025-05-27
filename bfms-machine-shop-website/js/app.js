@@ -9,12 +9,14 @@ document.addEventListener("DOMContentLoaded", function() {
     let selectedMaterial = "Aluminum";
     let selectedSize = "1";
     let rowIndex = 10; // Default index for Aluminum size 1
+    let parsedData = null;
 
     // Load CSV data
     fetch('data/Center_Drill_Speeds_and_Feeds.csv')
         .then(response => response.text())
         .then(data => {
-            const parsedData = parseCSV(data);
+            parsedData = parseCSV(data);
+            console.log(parsedData);
             updateResults(parsedData);
         });
 
@@ -23,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
         radio.addEventListener('change', function() {
             selectedMaterial = this.value;
             setMaterialRow();
-            updateResults(parsedData);
+            if (parsedData){
+                updateResults(parsedData);
+            }
         });
     });
 
@@ -31,7 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
     sizeRadios.forEach(radio => {
         radio.addEventListener('change', function() {
             selectedSize = this.value;
-            updateResults(parsedData);
+            if (parsedData) {
+                updateResults(parsedData);
+            }
         });
     });
 
@@ -54,7 +60,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateResults(data) {
         const speedColumnName = selectedSize + " Speed";
         const feedColumnName = selectedSize + " Feed";
-
+        if (!data[rowIndex]) {
+            console.error(`Row at index ${rowIndex} does not exist.`);
+            return;
+        }
         speedDisplay.textContent = data[rowIndex][speedColumnName];
         feedDisplay.textContent = data[rowIndex][feedColumnName];
     }

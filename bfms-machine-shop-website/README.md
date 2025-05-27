@@ -6,7 +6,7 @@ The BFMS Machine Shop Website is a web application designed to assist users in c
 ## Project Structure
 ```
 bfms-machine-shop-website
-├── index.html          # Main HTML document for the website
+├── index.html         # Main HTML document for the website
 ├── css
 │   └── styles.css     # Styles for the website
 ├── js
