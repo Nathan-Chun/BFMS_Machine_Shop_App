@@ -1,4 +1,4 @@
-// This file contains the JavaScript code that implements the functionality of the BFMS Machine Shop website.
+//Material, diameter
 
 document.addEventListener("DOMContentLoaded", function() {
     const materialRadios = document.querySelectorAll('input[name="material"]');
@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const speedDisplay = document.getElementById("speed");
     const feedDisplay = document.getElementById("feed");
 
-    let selectedMaterial = "Aluminum";
-    let selectedSize = "1";
-    let rowIndex = 10; // Default index for Aluminum size 1
+    let selectedMaterial = "Non-alloy steel";
+    let selectedSize = "≤0.3125";
+    let rowIndex = 0; // Default index for Aluminum size 1
     let parsedData = null;
 
     // Load CSV data
-    fetch('data/Center_Drill_Speeds_and_Feeds.csv')
+    fetch('data/Endmill_Speeds_and_Feeds.csv')
         .then(response => response.text())
         .then(data => {
             parsedData = parseCSV(data);
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     sizeRadios.forEach(radio => {
         radio.addEventListener('change', function() {
             selectedSize = this.value;
+            console.log(selectedSize);
             if (parsedData) {
                 updateResults(parsedData);
             }
@@ -43,40 +44,68 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function setMaterialRow() {
         switch (selectedMaterial) {
-            case "Aluminum":
-                rowIndex = 10;
-                break;
-            case "Low alloy steel":
-                rowIndex = 4;
+            case "Non-alloy steel":
+                rowIndex = 0;
                 break;
             case "Stainless steel":
-                rowIndex = 5;
+                rowIndex = 11;
+                break;
+            case "Malleable cast iron":
+                rowIndex = 14;
+                break;
+            case "Grey cast iron":
+                rowIndex = 15;
+                break;
+            case "Nodular cast iron":
+                rowIndex = 19;
+                break;
+            case "Aluminum-wrought alloy": //Fix bug
+                rowIndex = 20;
+                break;
+            case "Copper and Copper Alloys (Bronze / Brass)":
+                rowIndex = 22;
+                break;
+            case "Non Metallic Materials":
+                rowIndex = 30;
+                break;
+            case "Heat Resistant Super Alloys":
+                rowIndex = 35;
+                break;
+            case "Titanium Alloys": //Fix bug
+                rowIndex = 36;
                 break;
             default:
-                rowIndex = 10;
+                rowIndex = 0;
         }
     }
 
     function updateResults(data) {
-        const speedColumnName = selectedSize + " Speed";
-        const feedColumnName = selectedSize + " Feed";
+        const sizeColumnMap = {
+            "≤0.3125": "≤0.3125 (in/tooth)",
+            ">0.3125": ">0.3125 (in/tooth)"
+        };
+        const speedColumnName = "Cutting Speed (SFM)";
+        console.log(speedColumnName);
+        const feedColumnName = sizeColumnMap[selectedSize];
         if (!data[rowIndex]) {
             console.error(`Row at index ${rowIndex} does not exist.`);
             return;
         }
-        speedDisplay.textContent = data[rowIndex][speedColumnName];
-        feedDisplay.textContent = data[rowIndex][feedColumnName];
+        speedDisplay.textContent = "Speed: " + data[rowIndex][speedColumnName];
+        feedDisplay.textContent = "Feed: " + data[rowIndex][feedColumnName];
     }
 
     function parseCSV(data) {
         const rows = data.split('\n').map(row => row.split(','));
-        const headers = rows[0];
+        const headers = rows[0].map(h => h.trim());
         const result = rows.slice(1).map(row => {
             return row.reduce((acc, value, index) => {
                 acc[headers[index]] = value;
                 return acc;
             }, {});
         });
+
+
         return result;
     }
 });
