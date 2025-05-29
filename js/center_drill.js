@@ -65,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error(`Row at index ${rowIndex} does not exist.`);
             return;
         }
-        speedDisplay.textContent = data[rowIndex][speedColumnName];
-        feedDisplay.textContent = data[rowIndex][feedColumnName];
+        speedDisplay.textContent = "Speed: "+ data[rowIndex][speedColumnName]  + "  RPM";
+        feedDisplay.textContent = "Speed: "+ data[rowIndex][feedColumnName] + "  IPT (Inches/Tooth)";
     }
 
     function parseCSV(data) {
