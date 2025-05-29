@@ -1,0 +1,38 @@
+Material Group,ID,HB,HRC,ISO,VDI,Cutting Speed (SFM),≤0.3125 (in/tooth),>0.3125 (in/tooth)
+Non-alloy steel,P1,125,,1,3323,250-400,0.0010-0.0020,0.0020-0.0038
+Non-alloy steel,P2,190,,13,,250-370,0.0008-0.0016,0.0016-0.0034
+Non-alloy steel,P3,250,,25,,250-360,0.0008-0.0016,0.0016-0.0034
+Non-alloy steel,P4,270,,28,,230-330,0.0006-0.0014,0.0014-0.0030
+Non-alloy steel,P5,300,,32,,230-320,0.0006-0.0014,0.0014-0.0030
+Non-alloy steel,P6,180,,10,,250-360,0.0008-0.0016,0.0016-0.0034
+Non-alloy steel,P7,275,,29,,230-330,0.0006-0.0014,0.0014-0.0030
+Non-alloy steel,P8,300,,32,,230-320,0.0006-0.0014,0.0014-0.0030
+Non-alloy steel,P9,350,,38,,200-300,0.0006-0.0014,0.0014-0.0030
+Non-alloy steel,P10,200,,15,,230-320,0.0008-0.0016,0.0016-0.0034
+Non-alloy steel,P11,325,,35,,200-300,0.0006-0.0014,0.0014-0.0026
+Stainless steel,M12,200,,15,,200-250,0.0006-0.0010,0.0010-0.0022
+Stainless steel,M13,240,,23,,200-250,0.0004-0.0008,0.0008-0.0018
+Stainless steel,M14,180,,10,,150-250,0.0006-0.0010,0.0010-0.0022
+Malleable cast iron,K15,180,,10,,250-400,0.0012-0.0020,0.0020-0.0041
+Grey cast iron,K16,260,,26,,250-360,0.0008-0.0016,0.0016-0.0034
+Grey cast iron,K17,160,,3,,250-400,0.0012-0.0020,0.0020-0.0041
+Grey cast iron,K18,250,,25,,230-320,0.0008-0.0016,0.0016-0.0034
+Grey cast iron,K19,130,,,,230-320,0.0008-0.0016,0.0016-0.0034
+Nodular cast iron,K20,230,,21,,230-350,0.0012-0.0020,0.0020-0.0041
+Aluminum-wrought alloy,N21,60,,,,500-1000,0.0024-0.0032,0.0032-0.0049
+Aluminum-cast, alloyed,N22,100,,,,400-800,0.0020-0.0028,0.0028-0.0041
+Copper and Copper Alloys (Bronze / Brass),N23,75,,,,350-900,0.0012-0.0020,0.0020-0.0034
+Copper and Copper Alloys (Bronze / Brass),N24,90,,,,350-900,0.0012-0.0020,0.0020-0.0034
+Copper and Copper Alloys (Bronze / Brass),N25,130,,,,350-800,0.0008-0.0016,0.0016-0.0030
+Copper and Copper Alloys (Bronze / Brass),N26,110,,,,500-800,0.0016-0.0024,0.0024-0.0038
+Copper and Copper Alloys (Bronze / Brass),N27,90,,,,350-800,0.0016-0.0024,0.0024-0.0038
+Copper and Copper Alloys (Bronze / Brass),N28,100,,,,300-600,0.0012-0.0020,0.0020-0.0034
+Copper and Copper Alloys (Bronze / Brass),N29,,,,,350-900,0.0012-0.0020,0.0020-0.0034
+Copper and Copper Alloys (Bronze / Brass),N30,,,,,350-900,0.0012-0.0020,0.0020-0.0034
+Non Metallic Materials,S31,200,,15,,100-200,0.0004-0.0008,0.0008-0.0014
+Non Metallic Materials,S32,280,,30,,70-180,0.0002-0.0006,0.0006-0.0014
+Non Metallic Materials,S33,250,,25,,50-140,0.0002-0.0006,0.0006-0.0010
+Non Metallic Materials,S34,350,,38,,50-120,0.0002-0.0006,0.0006-0.0010
+Non Metallic Materials,S35,320,,34,,50-140,0.0002-0.0006,0.0006-0.0009
+Heat Resistant Super Alloys,S36,400,,Rm,,100-250,0.0006-0.0010,0.0010-0.0022
+Titanium Alloys,S37,1050,,Rm,,60-140,0.0002-0.0006,0.0006-0.0010

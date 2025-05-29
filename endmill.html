@@ -36,37 +36,44 @@
     </nav>
 
     <div class="container-title">
-        <h1>Center Drill Speed and Feed Calculator</h1>
+        <h1>Endmill Speed and Feed Calculator</h1>
     </div>
     <div class="container">
         <div class="material-selection">
             <h2>Step 1: Select Material</h2>
             <form id="materialForm">
-                <label><input type="radio" name="material" value="Aluminum" checked> Aluminum</label><br>
-                <label><input type="radio" name="material" value="Low alloy steel"> Low alloy steel</label><br>
+                <label><input type="radio" name="material" value="Non-alloy steel" checked> Non-alloy steel</label><br>
                 <label><input type="radio" name="material" value="Stainless steel"> Stainless steel</label><br>
+                <label><input type="radio" name="material" value="Malleable cast iron"> Malleable cast iron</label><br>
+                <label><input type="radio" name="material" value="Grey cast iron"> Grey cast iron</label><br>
+                <label><input type="radio" name="material" value="Nodular cast iron"> Nodular cast iron</label><br>
+                <label><input type="radio" name="material" value="Aluminum-wrought alloy"> Aluminum-wrought alloy</label><br> 
+                <label><input type="radio" name="material" value="Copper and Copper Alloys (Bronze / Brass)"> Copper and Copper Alloys (Bronze / Brass)</label><br>
+                <label><input type="radio" name="material" value="Non Metallic Materials"> Non Metallic Materials</label><br>
+                <label><input type="radio" name="material" value="Heat Resistant Super Alloys"> Heat Resistant Super Alloys</label><br>
+                <label><input type="radio" name="material" value="Titanium Alloys"> Titanium Alloys</label><br>
+
+            
+            
             </form>
         </div>
         <hr>
         <div class="size-selection">
             <h2>Step 2: Select Tool Size</h2>
             <form id="sizeForm">
-                <label><input type="radio" name="size" value="1" checked> 1</label><br>
-                <label><input type="radio" name="size" value="2"> 2</label><br>
-                <label><input type="radio" name="size" value="3"> 3</label><br>
-                <label><input type="radio" name="size" value="4"> 4</label><br>
-                <label><input type="radio" name="size" value="5"> 5</label><br>
-                <label><input type="radio" name="size" value="6"> 6</label><br>
+                <label><input type="radio" name="size" value="≤0.3125" checked> &le;0.3125 </label><br>
+                <label><input type="radio" name="size" value=">0.3125"> &gt;0.3125</label><br>
             </form>
         </div>
         <hr>
         <div class="results">
             <h2>Results</h2>
+            <p> <i>Note: Choose the median speed and feed if unsure</i> </p>
             <p id="speed">Speed: 0</p>
             <p id="feed">Feed: 0</p>
         </div>
     </div>
 
-    <script src="js/center_drill.js"></script>
+    <script src="js/endmill.js"></script>
 </body>
 </html>
