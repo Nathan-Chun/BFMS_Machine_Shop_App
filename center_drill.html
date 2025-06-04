@@ -38,32 +38,58 @@
     <div class="container-title">
         <h1>Center Drill Speed and Feed Calculator</h1>
     </div>
+    <div>
+
     <div class="container">
-        <div class="material-selection">
-            <h2>Step 1: Select Material</h2>
-            <form id="materialForm">
-                <label><input type="radio" name="material" value="Aluminum" checked> Aluminum</label><br>
-                <label><input type="radio" name="material" value="Low alloy steel"> Low alloy steel</label><br>
-                <label><input type="radio" name="material" value="Stainless steel"> Stainless steel</label><br>
-            </form>
+        <h2>Tool Information</h2>
+        <p>Center drills are used to create a lead in hole that helps align drills and should always precede drill toolpaths.  
+            They are typically made of carbide, which is a much harder material than high speed steel (HSS) used in drills. <br><br>
+            <b>Programming Checklist</b>: <br>
+            - drill depths &lt; cutting length denoted as LF in the figure below<br>
+            - retract is high enough to avoid collision with part<br>
+            - RPM &le; 12000<br>
+        </p>
+        <div>
+            <div class="material-selection">
+                <h2>Step 1: Select Material</h2>
+                <form id="materialForm"> </form>
+            </div>
+            <hr>
+            <div class="size-selection">
+                <h2>Step 2: Select Tool Size</h2>
+                <p><i><b>Note</b>: MasterCAM specifies center drill size by shank diameter, but feeds and speeds are based on the pilot diameter labeled DC in the figure below.  Be sure to 
+                    change the diameter in the tool settings to obtain proper values.
+                </i> </p>
+                <div class="size-content">
+                    <form id="sizeForm">
+                        <label><input type="radio" name="size" value="1" checked> #1 Center Drill (Pilot Diameter 3/64") </label><br>
+                        <label><input type="radio" name="size" value="2"> #2 Center Drill (Pilot Diameter 1/16") </label><br>
+                        <label><input type="radio" name="size" value="3"> #3 Center Drill (Pilot Diameter 3/32") </label><br>
+                        <label><input type="radio" name="size" value="4"> #4 Center Drill (Pilot Diameter 1/8") </label><br>
+                        <label><input type="radio" name="size" value="5"> #5 Center Drill (Pilot Diameter 3/16") </label><br>
+                        <label><input type="radio" name="size" value="6"> #6 Center Drill (Pilot Diameter 7/32") </label><br>
+                    </form>
+                    <img src="./Images/center_drill.png">
+                </div>
+            </div>
+
         </div>
-        <hr>
-        <div class="size-selection">
-            <h2>Step 2: Select Tool Size</h2>
-            <form id="sizeForm">
-                <label><input type="radio" name="size" value="1" checked> 1</label><br>
-                <label><input type="radio" name="size" value="2"> 2</label><br>
-                <label><input type="radio" name="size" value="3"> 3</label><br>
-                <label><input type="radio" name="size" value="4"> 4</label><br>
-                <label><input type="radio" name="size" value="5"> 5</label><br>
-                <label><input type="radio" name="size" value="6"> 6</label><br>
-            </form>
-        </div>
+ 
         <hr>
         <div class="results">
-            <h2>Results</h2>
-            <p id="speed">Speed: 0</p>
-            <p id="feed">Feed: 0</p>
+            <h2>Machining Settings</h2>
+            <p><i><b>Note</b>: HAAS VF-2 has a max spindle speed of 12000 RPM.  If the settings below have a a speed>12000, set the settings to 12000 in your CAM software.</i></p>
+            <div class ="speed-feed-row">
+                <div class = "feed-column">
+                    <p id="feed rate">Feed rate: </p>
+                    <p id="feed">FPT: 0</p>
+                </div>
+                <div class = "speed-column">
+                    <p id="speed">Spindle speed: 0</p>
+                    <p id="SFM">SFM: </p>
+                </div>
+
+            </div>
         </div>
     </div>
 

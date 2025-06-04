@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.text())
         .then(data => {
             parsedData = parseCSV(data);
+            populateMaterialButtons(parsedData);
             console.log(parsedData);
             updateResults(parsedData);
         });
@@ -107,5 +108,46 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
         return result;
+    }
+
+            // Create calculator button options
+    function populateMaterialButtons(data) {
+        const materialForm = document.getElementById("materialForm");
+        materialForm.innerHTML = ""; // Clear any existing buttons
+
+        const uniqueMaterials = [...new Set(data.map(row => row["Material"]?.trim()).filter(Boolean))];
+
+        uniqueMaterials.forEach((material, index) => {
+            const label = document.createElement("label");
+            const input = document.createElement("input");
+
+            input.type = "radio";
+            input.name = "material";
+            input.value = material;
+            if (index === 0) {
+                input.checked = true;
+                selectedMaterial = material;
+                setMaterialRow();
+            }
+
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(` ${material}`));
+            materialForm.appendChild(label);
+            materialForm.appendChild(document.createElement("br"));
+        });
+
+        // Add listeners after elements are added
+        const materialRadios = document.querySelectorAll('input[name="material"]');
+        materialRadios.forEach(radio => {
+            radio.addEventListener('change', function () {
+                selectedMaterial = this.value;
+                setMaterialRow();
+                if (parsedData) {
+                    updateResults(parsedData);
+                    console.log("CSV loaded. Example row:", parsedData[0]);
+                    console.log("Unique materials:", uniqueMaterials);
+                }
+            });
+        });
     }
 });

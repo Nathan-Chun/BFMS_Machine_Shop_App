@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const sizeRadios = document.querySelectorAll('input[name="size"]');
     const speedDisplay = document.getElementById("speed");
     const feedDisplay = document.getElementById("feed");
+    const feedRateDisplay = document.getElementById("feed rate");
+    const SFMDisplay = document.getElementById("SFM");
 
     let selectedMaterial = "Aluminum";
     let selectedSize = "1";
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.text())
         .then(data => {
             parsedData = parseCSV(data);
+            populateMaterialButtons(parsedData);
             console.log(parsedData);
             updateResults(parsedData);
         });
@@ -61,12 +64,42 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateResults(data) {
         const speedColumnName = selectedSize + " Speed";
         const feedColumnName = selectedSize + " Feed";
+
+        // String to float
+        floatSpeed = parseFloat(data[rowIndex][speedColumnName]);
+        floatFeed = parseFloat(data[rowIndex][feedColumnName]);
+
+        //Feed Rate Calc
+        feedRate = floatFeed*4*floatSpeed;
+
+        // SFM Calc
+        let sizeDict = {
+            1: 0.046875,
+            2: 0.0625,
+            3: 0.09375,
+            4: 0.0625,
+            5: 0.1875,
+            6: 0.21875,
+        };
+        size = sizeDict[parseFloat(selectedSize)];
+        console.log(size);
+        SFM = floatSpeed * size * 0.262;
+
+
+// value="0.046875" checked> #1 (3/64") </label><br>
+//                 <label><input type="radio" name="size" value="0.0625"> #2 (1/16") </label><br>
+//                 <label><input type="radio" name="size" value="0.09375"> #3 (3/32") </label><br>
+//                 <label><input type="radio" name="size" value="0.0625"> #4 (1/8") </label><br>
+//                 <label><input type="radio" name="size" value="0.1875"> #5 (3/16") </label><br>
+//                 <label><input type="radio" name="size" value="0.21875"
         if (!data[rowIndex]) {
             console.error(`Row at index ${rowIndex} does not exist.`);
             return;
         }
-        speedDisplay.textContent = "Speed: "+ data[rowIndex][speedColumnName]  + "  RPM";
-        feedDisplay.textContent = "Speed: "+ data[rowIndex][feedColumnName] + "  IPT (Inches/Tooth)";
+        speedDisplay.textContent = "Spindle speed: "+ data[rowIndex][speedColumnName]  + " (RPM)";
+        feedDisplay.textContent = "FPT: "+ data[rowIndex][feedColumnName];
+        feedRateDisplay.textContent = "Feed rate: " +feedRate;
+        SFMDisplay.textContent = "SFM: " + Math.round(SFM);
     }
 
     function parseCSV(data) {
@@ -79,5 +112,46 @@ document.addEventListener("DOMContentLoaded", function() {
             }, {});
         });
         return result;
+    }
+
+        // Create calculator button options
+    function populateMaterialButtons(data) {
+        const materialForm = document.getElementById("materialForm");
+        materialForm.innerHTML = ""; // Clear any existing buttons
+
+        const uniqueMaterials = [...new Set(data.map(row => row["Material"]?.trim()).filter(Boolean))];
+
+        uniqueMaterials.forEach((material, index) => {
+            const label = document.createElement("label");
+            const input = document.createElement("input");
+
+            input.type = "radio";
+            input.name = "material";
+            input.value = material;
+            if (index === 0) {
+                input.checked = true;
+                selectedMaterial = material;
+                setMaterialRow();
+            }
+
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(` ${material}`));
+            materialForm.appendChild(label);
+            materialForm.appendChild(document.createElement("br"));
+        });
+
+        // Add listeners after elements are added
+        const materialRadios = document.querySelectorAll('input[name="material"]');
+        materialRadios.forEach(radio => {
+            radio.addEventListener('change', function () {
+                selectedMaterial = this.value;
+                setMaterialRow();
+                if (parsedData) {
+                    updateResults(parsedData);
+                    console.log("CSV loaded. Example row:", parsedData[0]);
+                    console.log("Unique materials:", uniqueMaterials);
+                }
+            });
+        });
     }
 });

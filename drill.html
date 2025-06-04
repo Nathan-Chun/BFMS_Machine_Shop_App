@@ -1,94 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BFMS Machine Shop App</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class = "logo"><a class="logo" href="index.html"><span class="text--color">Home</span></a></div>
-        <ul class="nav__link--list">
-            <li class="nav__link">
-                <a href="people.html" class="
-                nav__link--anchor
-                link__hover-effect">
-                    People</a>
-            </li>
-            <li class="nav__link dropdown">
-                <a href="#" class="nav__link--anchor link__hover-effect">Calculators</a>
-                <ul class="dropdown-menu">
-                    <li><a href="center_drill.html">Center Drill</a></li>
-                    <li><a href="endmill.html">Endmill</a></li>
-                    <li><a href="drill.html">Drill</a></li>
-                    <li><a href="center_drill_4.html">Option 4</a></li>
-                    <li><a href="center_drill_5.html">Option 5</a></li>
-                    <li><a href="center_drill_6.html">Option 6</a></li>
-                    <li><a href="center_drill_7.html">Option 7</a></li>
-                    <li><a href="center_drill_8.html">Option 8</a></li>
-                    <li><a href="center_drill_9.html">Option 9</a></li>
-                    <li><a href="center_drill_10.html">Option 10</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BFMS Machine Shop App</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class = "logo"><a class="logo" href="index.html"><span class="text--color">Home</span></a></div>
+            <ul class="nav__link--list">
+                <li class="nav__link">
+                    <a href="people.html" class="
+                    nav__link--anchor
+                    link__hover-effect">
+                        People</a>
+                </li>
+                <li class="nav__link dropdown">
+                    <a href="#" class="nav__link--anchor link__hover-effect">Calculators</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="center_drill.html">Center Drill</a></li>
+                        <li><a href="endmill.html">Endmill</a></li>
+                        <li><a href="drill.html">Drill</a></li>
+                        <li><a href="center_drill_4.html">Option 4</a></li>
+                        <li><a href="center_drill_5.html">Option 5</a></li>
+                        <li><a href="center_drill_6.html">Option 6</a></li>
+                        <li><a href="center_drill_7.html">Option 7</a></li>
+                        <li><a href="center_drill_8.html">Option 8</a></li>
+                        <li><a href="center_drill_9.html">Option 9</a></li>
+                        <li><a href="center_drill_10.html">Option 10</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
 
-    <div class="container-title">
-        <h1>Drill Speed and Feed Calculator</h1>
-    </div>
-    <div class="container">
-        <p>
-            Recommended selections:<br>
-            - Typical Aluminum: Low-Silicon Aluminum Alloys and Magnesium Alloys <br>
-            - 
-        </p>
-        <div class="material-selection">
-            <h2>Step 1: Select Material</h2>
-            <form id="materialForm">
-            <label><input type="radio" name="material" value="Low-Carbon Steels, Long Chipping" checked> Low-Carbon Steels, Long Chipping</label><br>
-            <label><input type="radio" name="material" value="Low-Carbon Steels, Short Chipping, Free Machining"> Low-Carbon Steels, Short Chipping, Free Machining</label><br>
-            <label><input type="radio" name="material" value="Medium- and High-Carbon Steels"> Medium- and High-Carbon Steels</label><br>
-            <label><input type="radio" name="material" value="Alloy Steels and Tool Steels"> Alloy Steels and Tool Steels</label><br>
-            <label><input type="radio" name="material" value="Ferritic, Martensitic, and PH Stainless Steels"> Ferritic, Martensitic, and PH Stainless Steels</label><br>
-            <label><input type="radio" name="material" value="High-Strength Ferritic, Martensitic, and PH Stainless Steels"> High-Strength Ferritic, Martensitic, and PH Stainless Steels</label><br>
-            <label><input type="radio" name="material" value="Austenitic Stainless Steel"> Austenitic Stainless Steel</label><br>
-            <label><input type="radio" name="material" value="High-Strength Austenitic Stainless and Cast Stainless Steel"> High-Strength Austenitic Stainless and Cast Stainless Steel</label><br>
-            <label><input type="radio" name="material" value="Duplex Stainless Steel"> Duplex Stainless Steel</label><br>
-            <label><input type="radio" name="material" value="Gray Cast Iron"> Gray Cast Iron</label><br>
-            <label><input type="radio" name="material" value="Low- and Medium-Strength Ductile Irons (Nodular) and Compacted Graphite Irons"> Low- and Medium-Strength Ductile Irons (Nodular) and Compacted Graphite Irons</label><br>
-            <label><input type="radio" name="material" value="High-Strength Ductile Irons and Austempered Ductile Iron"> High-Strength Ductile Irons and Austempered Ductile Iron</label><br>
-            <label><input type="radio" name="material" value="Wrought Aluminum"> Wrought Aluminum</label><br>
-            <label><input type="radio" name="material" value="Low-Silicon Aluminum Alloys and Magnesium Alloys"> Low-Silicon Aluminum Alloys and Magnesium Alloys</label><br>
-            <label><input type="radio" name="material" value="High-Silicon Aluminum Alloys and Magnesium Alloys"> High-Silicon Aluminum Alloys and Magnesium Alloys</label><br>
-            <label><input type="radio" name="material" value="Nickel-Based, Heat-Resistant Alloys"> Nickel-Based, Heat-Resistant Alloys</label><br>
-            <label><input type="radio" name="material" value="Titanium and Titanium Alloys"> Titanium and Titanium Alloys</label><br>
-
-            </form>
+        <div class="container-title">
+            <h1>Drill Speed and Feed Calculator</h1>
         </div>
-        <hr>
-        <div class="size-selection">
-            <h2>Step 2: Select Tool Size</h2>
-            <form id="sizeForm">
-                <label><input type="radio" name="size" value="0.473-0.531" checked> 0.473-0.531" (Size A)</label><br>
-                <label><input type="radio" name="size" value="0.563-0.734"> 0.563-0.734" (Size B)</label><br>
-                <label><input type="radio" name="size" value="0.750-0.938"> 0.750-0.938" (Size C)</label><br>
-                <label><input type="radio" name="size" value="0.969-1.156"> 0.969-1.156" (Size D)</label><br>
-                <label><input type="radio" name="size" value="1.188-1.438"> 1.188-1.438" (Size E)</label><br>
-                <label><input type="radio" name="size" value="1.469-1.750"> 1.469-1.750" (Size F)</label><br>
-                <label><input type="radio" name="size" value="1.813-2.219"> 1.813-2.219" (Size G)</label><br>
-                <label><input type="radio" name="size" value="2.250-2.500"> 2.250-2.500" (Size H)</label><br>
-            </form>
+        <div class="container">
+            <p>
+                Recommended selections:<br>
+                - Typical Aluminum: Low-Silicon Aluminum Alloys and Magnesium Alloys <br>
+                - 
+            </p>
+            <div class="material-selection">
+                <h2>Step 1: Select Material</h2>
+                <form id="materialForm"> </form>
+            </div>
+            <hr>
+            <div class="size-selection">
+                <h2>Step 2: Select Tool Size</h2>
+                <form id="sizeForm">
+                    <label><input type="radio" name="size" value="0.473-0.531" checked> 0.473-0.531" (Size A)</label><br>
+                    <label><input type="radio" name="size" value="0.563-0.734"> 0.563-0.734" (Size B)</label><br>
+                    <label><input type="radio" name="size" value="0.750-0.938"> 0.750-0.938" (Size C)</label><br>
+                    <label><input type="radio" name="size" value="0.969-1.156"> 0.969-1.156" (Size D)</label><br>
+                    <label><input type="radio" name="size" value="1.188-1.438"> 1.188-1.438" (Size E)</label><br>
+                    <label><input type="radio" name="size" value="1.469-1.750"> 1.469-1.750" (Size F)</label><br>
+                    <label><input type="radio" name="size" value="1.813-2.219"> 1.813-2.219" (Size G)</label><br>
+                    <label><input type="radio" name="size" value="2.250-2.500"> 2.250-2.500" (Size H)</label><br>
+                </form>
+            </div>
+            <hr>
+            <div class="results">
+                <h2>Results</h2>
+                <p id="speed">Speed: 0 RPM</p>
+                <p id="feed">Feed: 0 IPT (Inches/Tooth)</p>
+            </div>
         </div>
-        <hr>
-        <div class="results">
-            <h2>Results</h2>
-            <p id="speed">Speed: 0 RPM</p>
-            <p id="feed">Feed: 0 IPT (Inches/Tooth)</p>
-        </div>
-    </div>
-
-    <script src="js/center_drill.js"></script>
-</body>
+        <script src = "https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+        <script src="js/drill.js"></script>
+    </body>
 </html>

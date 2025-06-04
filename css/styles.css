@@ -106,12 +106,9 @@ a,
 
 .container {
     width: 80%;
-    /* margin: auto; */
     overflow: hidden;
-    /* align-items: center; */
     display:flex;
     flex-direction: column;
-    /* justify-content: center; */
     display:flex;
     margin: 0 auto;
 
@@ -121,6 +118,22 @@ a,
     padding: 20px 0 20px 0;
     text-align: center;
  
+}
+
+.size-content{
+    display:flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.size-content img{
+    max-width:60%;
+    height: auto;
+    flex-shrink:0;
+}
+
+#sizeForm{
+    flex: 0.5;
 }
 
 /*General*/
@@ -163,9 +176,27 @@ label {
 
 .results {
     background: #e9ecef;
+    text-align: center;
     padding: 10px;
     border-radius: 5px;
     margin-top: 20px;
+    justify-content: center;
+}
+
+.results .speed-feed-row{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+}
+
+.results.speed-column,
+.results.feed-column{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
 }
 
 footer {

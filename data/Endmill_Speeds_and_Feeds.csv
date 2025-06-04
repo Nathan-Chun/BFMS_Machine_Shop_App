@@ -1,4 +1,4 @@
-Material Group,ID,HB,HRC,ISO,VDI,Cutting Speed (SFM),≤0.3125 (in/tooth),>0.3125 (in/tooth)
+Material,ID,HB,HRC,ISO,VDI,Cutting Speed (SFM),≤0.3125 (in/tooth),>0.3125 (in/tooth)
 Non-alloy steel,P1,125,,1,3323,250-400,0.0010-0.0020,0.0020-0.0038
 Non-alloy steel,P2,190,,13,,250-370,0.0008-0.0016,0.0016-0.0034
 Non-alloy steel,P3,250,,25,,250-360,0.0008-0.0016,0.0016-0.0034
