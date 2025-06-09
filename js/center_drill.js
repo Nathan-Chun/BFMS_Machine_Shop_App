@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const feedRateDisplay = document.getElementById("feed rate");
     const SFMDisplay = document.getElementById("SFM");
 
-    let selectedMaterial = "Aluminum";
+    let selectedMaterial = "Non-alloy steel";
     let selectedSize = "1";
-    let rowIndex = 10; // Default index for Aluminum size 1
+    let rowIndex = 1; // Default index for Aluminum size 1
     let parsedData = null;
 
     // Load CSV data
@@ -46,28 +46,31 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function setMaterialRow() {
-        switch (selectedMaterial) {
-            case "Aluminum":
-                rowIndex = 10;
-                break;
-            case "Low alloy steel":
-                rowIndex = 4;
-                break;
-            case "Stainless steel":
-                rowIndex = 5;
-                break;
-            default:
-                rowIndex = 10;
-        }
+        const materialRowMap = {
+            "Non-alloy steel": 0,
+            "Low alloy steel": 4,
+            "Stainless steel": 5,
+            "Grey cast iron": 6,
+            "Nodular cast iron": 8,
+            "Malleable cast iron": 9,
+            "Aluminum": 10,
+        };
+
+        rowIndex = materialRowMap[selectedMaterial] ?? 10;
     }
 
     function updateResults(data) {
+        // console.log(rowIndex);
+        // console.log(selectedMaterial);
         const speedColumnName = selectedSize + " Speed";
+        // console.log(speedColumnName);
         const feedColumnName = selectedSize + " Feed";
 
         // String to float
         floatSpeed = parseFloat(data[rowIndex][speedColumnName]);
+        
         floatFeed = parseFloat(data[rowIndex][feedColumnName]);
+        // console.log(floatSpeed);
 
         //Feed Rate Calc
         feedRate = floatFeed*floatSpeed;
@@ -77,14 +80,17 @@ document.addEventListener("DOMContentLoaded", function() {
             1: 0.046875,
             2: 0.0625,
             3: 0.09375,
-            4: 0.0625,
+            4: 0.125,
             5: 0.1875,
             6: 0.21875,
         };
         size = sizeDict[parseFloat(selectedSize)];
-        console.log(size);
+        // console.log(size);
         SFM = floatSpeed * size * 0.262;
-
+        console.log("SFM:", SFM);
+        console.log("Feed rate:", feedRate);
+        console.log("FPT:", floatFeed);
+        console.log("Spindle Speed: ", floatSpeed);
 
 // value="0.046875" checked> #1 (3/64") </label><br>
 //                 <label><input type="radio" name="size" value="0.0625"> #2 (1/16") </label><br>
@@ -120,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
         materialForm.innerHTML = ""; // Clear any existing buttons
 
         const uniqueMaterials = [...new Set(data.map(row => row["Material"]?.trim()).filter(Boolean))];
-
+        // console.log(uniqueMaterials);
         uniqueMaterials.forEach((material, index) => {
             const label = document.createElement("label");
             const input = document.createElement("input");
@@ -148,8 +154,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 setMaterialRow();
                 if (parsedData) {
                     updateResults(parsedData);
-                    console.log("CSV loaded. Example row:", parsedData[0]);
-                    console.log("Unique materials:", uniqueMaterials);
+                    // console.log("CSV loaded. Example row:", parsedData[0]);
+                    // console.log("Unique materials:", uniqueMaterials);
                 }
             });
         });
