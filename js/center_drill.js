@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
         floatFeed = parseFloat(data[rowIndex][feedColumnName]);
 
         //Feed Rate Calc
-        feedRate = floatFeed*4*floatSpeed;
+        feedRate = floatFeed*floatSpeed;
 
         // SFM Calc
         let sizeDict = {
