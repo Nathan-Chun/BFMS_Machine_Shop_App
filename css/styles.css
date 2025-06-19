@@ -2,13 +2,17 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa;
     color: #242424;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+:root{
+    --usc-cardinal:#990000;
+    --usc-gold: #FFCC00;
+}
 header {
     background-color: #007bff;
     color: white;
@@ -20,6 +24,10 @@ h1 {
     margin: 0;
 }
 
+h2{
+    color: var(--usc-cardinal);
+}
+
 /*Nav bar*/
 .logo {
     font-size: 24px;
@@ -28,8 +36,9 @@ h1 {
 }
 
 nav{
-    padding: 20px 30px;
+    padding: 0.75rem 1rem;
     height: auto;
+    background-color: var(--usc-cardinal);
     background: #dcdcdd;
     width: 100%;
     display: flex;
@@ -54,15 +63,35 @@ nav{
 }
 
 a,
-.nav_link--anchor{
+.nav_link--anchor, .logo span{
     text-decoration: none;
-    color: #242424
+    color: white !important;
 }
 
 
 /* Positioning for dropdown */
 .nav__link.dropdown {
     position: relative;
+}
+
+.nav__link--anchor:hover, .logo span:hover {
+    color: var(--usc-gold) !important;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--usc-gold);
+    color: black !important;
+}
+
+.container-title h1{
+    color: var(--usc-cardinal);
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    border-color: var(--usc-cardinal);
 }
 
 /* Hide dropdown by default */
@@ -175,12 +204,11 @@ label {
 }
 
 .results {
-    background: #e9ecef;
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 20px;
-    justify-content: center;
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    border-left: 5px solid var(--usc-cardinal);
 }
 
 .results .speed-feed-row{
@@ -191,12 +219,21 @@ label {
     margin: 0 auto;
 }
 
+.speed-feed-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .results.speed-column,
 .results.feed-column{
     display: flex;
+    flex: 1 1 200px;
+    padding: 0.5rem;
+    font-weight: bold;
+    color: #333;
     flex-direction:column;
     align-items: center;
-
 }
 
 footer {
